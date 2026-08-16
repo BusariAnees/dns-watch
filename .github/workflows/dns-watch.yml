@@ -1,0 +1,64 @@
+name: dns-watch
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dig and whois
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq bind9-dnsutils whois
+
+      - name: Take snapshot
+        run: |
+          chmod +x scripts/snapshot.sh
+          ./scripts/snapshot.sh
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet -- snapshots/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No DNS changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --unified=1 -- snapshots/ > /tmp/dns.diff
+            cat /tmp/dns.diff
+          fi
+
+      - name: Commit snapshot
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "dns-watch"
+          git config user.email "actions@github.com"
+          git add snapshots/
+          git commit -m "DNS change detected $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+
+      - name: Open issue
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "A monitored DNS or registration record changed."
+            echo
+            echo '```diff'
+            head -c 60000 /tmp/dns.diff
+            echo '```'
+            echo
+            echo "If this change was not made by the team, treat it as an incident:"
+            echo "check the registrar account first, then the DNS host."
+          } > /tmp/body.md
+          gh issue create \
+            --title "DNS change detected $(date -u +%Y-%m-%d)" \
+            --body-file /tmp/body.md

@@ -1,0 +1,57 @@
+# snapshot of dwellix.com.au
+# resolver: 1.1.1.1
+
+[NS]
+dwellix.com.au.  IN NS ns1.syd7.hostingplatform.net.au.
+dwellix.com.au.  IN NS ns2.syd7.hostingplatform.net.au.
+
+[SOA]
+dwellix.com.au.  IN SOA ns1.syd7.hostingplatform.net.au. root.s01ne.syd7.hostingplatform.net.au. 2026070303 86400 7200 3600000 1800
+
+[A]
+dwellix.com.au.  IN A 216.198.79.1
+
+[AAAA]
+
+[MX]
+dwellix.com.au.  IN MX 10 mx1.email-hosting.net.au.
+dwellix.com.au.  IN MX 10 mx2.email-hosting.net.au.
+dwellix.com.au.  IN MX 20 mx3.email-hosting.net.au.
+dwellix.com.au.  IN MX 30 mx4.email-hosting.net.au.
+
+[TXT]
+dwellix.com.au.  IN TXT "MS=ms62645759"
+dwellix.com.au.  IN TXT "v=spf1 a mx include:spf.email-hosting.net.au ~all"
+
+[CAA]
+
+[www.dwellix.com.au]
+www.dwellix.com.au.  IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
+f3c220ea7ee3587e.vercel-dns-017.com.  IN A 216.150.1.1
+f3c220ea7ee3587e.vercel-dns-017.com.  IN A 216.150.16.1
+www.dwellix.com.au.  IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
+www.dwellix.com.au.  IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
+
+[_dmarc.dwellix.com.au]
+
+[registration]
+DNSSEC: unsigned
+Name Server IP: 103.252.154.14
+Name Server IP: 223.130.24.235
+Name Server IP: 2400:8f80:0:11::9
+Name Server IP: 2400:b800:1::233
+Name Server: ns1.syd7.hostingplatform.net.au
+Name Server: ns2.syd7.hostingplatform.net.au
+Registrant Contact ID: 59c5c0e187464831bc64f7e96e77493e-AU
+Registrant Contact Name: Kristofer Missalidis
+Registrant ID: ABN 11695579723
+Registrant: DWELLIX PTY LTD
+Registrar Name: Synergy Wholesale Accreditations Pty Ltd
+Status Reason: Not Currently Eligible For Renewal
+Status: serverRenewProhibited https://identitydigital.au/whois-status-codes#serverRenewProhibited
+nserver:      A.AU 2407:6e00:254:0:0:0:0:1 58.65.254.1
+nserver:      Q.AU 2a01:8840:be:0:0:0:0:1 65.22.196.1
+nserver:      R.AU 2a01:8840:bf:0:0:0:0:1 65.22.197.1
+nserver:      S.AU 2a01:8840:c0:0:0:0:0:1 65.22.198.1
+nserver:      T.AU 2a01:8840:c1:0:0:0:0:1 65.22.199.1
+status:       ACTIVE
