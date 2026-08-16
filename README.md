@@ -9,9 +9,6 @@ Once a day it queries the public DNS records for each domain in `domains.txt`
 and writes a normalised snapshot to `snapshots/`. If anything differs from
 yesterday, it commits the change and opens a GitHub issue containing the diff.
 
-Because snapshots are committed, `git log snapshots/dwellix.com.au.txt` gives
-you a full history of every DNS change ever made to that domain, with dates.
-That history is often more useful than the alerting.
 
 ## Setup
 
