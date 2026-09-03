@@ -6,7 +6,7 @@ dwellix.com.au. IN NS ns1.syd7.hostingplatform.net.au.
 dwellix.com.au. IN NS ns2.syd7.hostingplatform.net.au.
 
 [SOA]
-dwellix.com.au. IN SOA ns1.syd7.hostingplatform.net.au. root.s01ne.syd7.hostingplatform.net.au. 2026070303 86400 7200 3600000 1800
+dwellix.com.au. IN SOA ns1.syd7.hostingplatform.net.au. root.s01ne.syd7.hostingplatform.net.au. 2026090203 86400 7200 3600000 1800
 
 [A]
 dwellix.com.au. IN A 216.198.79.1
