@@ -27,8 +27,8 @@ dwellix.com.au. IN TXT "v=spf1 a mx include:spf.email-hosting.net.au ~all"
 
 [www.dwellix.com.au]
 www.dwellix.com.au. IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
-f3c220ea7ee3587e.vercel-dns-017.com. IN A 216.150.1.193
-f3c220ea7ee3587e.vercel-dns-017.com. IN A 216.150.16.193
+f3c220ea7ee3587e.vercel-dns-017.com. IN A 216.150.1.1
+f3c220ea7ee3587e.vercel-dns-017.com. IN A 216.150.16.1
 www.dwellix.com.au. IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
 www.dwellix.com.au. IN CNAME f3c220ea7ee3587e.vercel-dns-017.com.
 
